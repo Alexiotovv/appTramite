@@ -62,6 +62,46 @@ return [
             ]) : [],
         ],
 
+        'mysql_salud' => [
+            'driver' => 'mysql',
+            'url' => env('DB_URL_SALUD'),
+            'host' => env('DB_HOST_SALUD', '127.0.0.1'),
+            'port' => env('DB_PORT_SALUD', '3306'),
+            'database' => env('DB_DATABASE_SALUD', 'laravel'),
+            'username' => env('DB_USERNAME_SALUD', 'root'),
+            'password' => env('DB_PASSWORD_SALUD', ''),
+            'unix_socket' => env('DB_SOCKET_SALUD', ''),
+            'charset' => env('DB_CHARSET_SALUD', 'utf8mb4'),
+            'collation' => env('DB_COLLATION_SALUD', 'utf8mb4_unicode_ci'),
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+
+        'mysql_educacion' => [
+            'driver' => 'mysql',
+            'url' => env('DB_URL_EDUCACION'),
+            'host' => env('DB_HOST_EDUCACION', '127.0.0.1'),
+            'port' => env('DB_PORT_EDUCACION', '3306'),
+            'database' => env('DB_DATABASE_EDUCACION', 'laravel'),
+            'username' => env('DB_USERNAME_EDUCACION', 'root'),
+            'password' => env('DB_PASSWORD_EDUCACION', ''),
+            'unix_socket' => env('DB_SOCKET_EDUCACION', ''),
+            'charset' => env('DB_CHARSET_EDUCACION', 'utf8mb4'),
+            'collation' => env('DB_COLLATION_EDUCACION', 'utf8mb4_unicode_ci'),
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+
         'mariadb' => [
             'driver' => 'mariadb',
             'url' => env('DB_URL'),
