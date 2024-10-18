@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Http\Requests\Auth\Login;
 use Illuminate\Support\Facades\Log;
 use App\Services\Tokens\TokenFactory;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -27,6 +28,7 @@ class AuthController extends Controller
                     'message' => $message
                 ], 401);
             }
+            $user->tokens()->delete();
             $tokenOperation = TokenFactory::create('operation');
             $tokenUpdate = TokenFactory::create('update');
             return response()->json([
@@ -43,12 +45,28 @@ class AuthController extends Controller
         }   
     }
 
+    public function refreshToken(Request $request)
+    {
+        try{
+            $user = $request->user();
+            return response()->json([
 
-    //public function logout(Request $request)
-    //{
-    //    // Revocar el token actual de la solicitud
-    //    $request->user()->currentAccessToken()->delete();
-    //
-    //    return response()->json(['data' => 'success', 'message' => 'Successfully logged out']);
-    //}
+            ]);
+        }catch(Exception $e){
+            Log::error(get_class($this) . 'method : ' .  __FUNCTION__ . ': ' . $e->getMessage());
+            return response()->json([
+                'message' => 'Estamos experimentando problemas'
+            ], 500);
+        }
+    }
+
+
+    public function logout(Request $request)
+    {
+        $user = $request->user();
+        $user->tokens()->delete();
+        return response()->json([
+            'message' => 'clario'
+        ], 200);
+    }
 }
