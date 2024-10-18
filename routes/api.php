@@ -10,7 +10,7 @@ use App\Http\Controllers\NivelesController;
 Route::prefix('/v1/')->group(function(){
     Route::post('login', [AuthController::class, 'login'])->middleware('throttle:login');
     Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
-    Route::post('refresh-token', [AuthController::class, 'refreshTokens'])->middleware('auth:sanctum', 'abilities:' . TokenAbility::REFRESH_ACCESS_TOKEN->value);
+    Route::post('refresh-token', [AuthController::class, 'refreshTokens'])->middleware('auth:sanctum', 'abilities:refresh-access-token');
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
