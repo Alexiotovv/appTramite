@@ -6,8 +6,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NivelesController;
 
-//Login
-Route::post('/v1/login', [AuthController::class, 'login'])->middleware('throttle:api');
+
+Route::post('/v1/login', [AuthController::class, 'login'])->middleware('throttle:login');
 Route::post('/v1/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
