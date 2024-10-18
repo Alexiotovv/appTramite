@@ -6,7 +6,6 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NivelesController;
 
-
 //Login
 Route::post('/v1/login', [AuthController::class, 'login']);
 Route::post('/v1/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
@@ -28,5 +27,3 @@ Route::get('/v1/nivel/show/{id}', [NivelesController::class, 'show'])->middlewar
 Route::post('/v1/nivel/store', [NivelesController::class, 'store'])->middleware('auth:sanctum');
 Route::put('/v1/nivel/update/{id}', [NivelesController::class, 'update'])->middleware('auth:sanctum');
 Route::delete('/v1/niveles/{id}', [NivelesController ::class, 'destroy'])->middleware('auth:sanctum');
-
-
