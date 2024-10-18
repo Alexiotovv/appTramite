@@ -48,6 +48,10 @@ return [
 
     'expiration' => null,
 
+    'op_expiration' =>  60,
+    
+    'refresh_expiration' => 60 * 24 * 60,
+    
     /*
     |--------------------------------------------------------------------------
     | Token Prefix

@@ -2,50 +2,53 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-
-use Validator;
+use Exception;
 use App\Models\User;
-use std\Class;
-use Iluminate\Support\Facades\Hash;
-
+use App\Http\Requests\Auth\Login;
+use Illuminate\Support\Facades\Log;
+use App\Services\Tokens\TokenFactory;
 
 class AuthController extends Controller
 {
-    
-
-    public function login(Request $request)
+    public function login(Login $request)
     {
-        
-        $credentials = $request->only('email', 'password');
-
-        if (Auth::attempt($credentials)) {
-            $user = Auth::user(); // Obtener el usuario autenticado
-
-            // Generar un token personal usando Sanctum
-            $token = $user->createToken('token-name')->plainTextToken;
-
+        try{
+            $user = User::verifyCredentials($request->email, $request->password);
+            if(!is_object($user)){
+                switch($user){
+                    case 1:
+                        $message = 'Usuario inactivo';
+                    break;
+                    case 2:
+                        $message = 'Contraseña incorrecta';
+                    break;
+                }
+                return response()->json([
+                    'message' => $message
+                ], 401);
+            }
+            $tokenOperation = TokenFactory::create('operation');
+            $tokenUpdate = TokenFactory::create('update');
             return response()->json([
-                'status' => 'success',
-                'data' => $user,
-                'token' => $token
-            ]);
-        } else {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
+                'items' => $user,
+                'tokenOperation' => $tokenOperation->generate($user),
+                'tokenUpdate' => $tokenUpdate->generate($user)
+            ], 200);
+        }catch(Exception $e){
+            Log::error(get_class($this) . 'method : ' .  __FUNCTION__ . ': ' . $e->getMessage());
+            return response()->json([
+                'message'=>'Estamos experimentando problemas temporales',
+                $e->getMessage()
+            ], 500);
+        }   
     }
 
 
-    public function logout(Request $request)
-    {
-        // Revocar el token actual de la solicitud
-        $request->user()->currentAccessToken()->delete();
-    
-        return response()->json(['data' => 'success', 'message' => 'Successfully logged out']);
-    }
-
-    
-    
-    
+    //public function logout(Request $request)
+    //{
+    //    // Revocar el token actual de la solicitud
+    //    $request->user()->currentAccessToken()->delete();
+    //
+    //    return response()->json(['data' => 'success', 'message' => 'Successfully logged out']);
+    //}
 }

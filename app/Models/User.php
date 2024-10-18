@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -19,10 +19,14 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'type_doc',
+        'number_doc',
         'name',
+        'lastname',
         'email',
         'password',
         'role',
+        'status'
     ];
 
     /**
@@ -44,4 +48,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     *  VerifyStatus of user
+     * @return \App\Models\User if the credententials are validate or int (1, user disabled), (2, password wrong)
+    */
+    public static function verifyCredentials(string $email, string $password): \App\Models\User|int
+    {
+        $user = self::where('email', $email)->first();
+        if($user->status == 0){
+            return 1; 
+        }
+        if(!Hash::check($password, $user->password)){
+            return 2;
+        }
+        return $user;
+    }
 }
