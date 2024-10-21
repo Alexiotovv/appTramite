@@ -8,15 +8,21 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     */
+     * Role:
+     *  1. admin
+     *  2. asistente
+     *  3. visor 
+    */
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('lastname');
             $table->string('email')->unique();
-            $table->string('role', 100)->nullable()->default('asistente');//admin , asistente, visor
-            $table->boolean('status')->default(false);//Falso=Inhabilitado , True = Habilitado
+            $table->enum('type_doc', ['dni', 'carnet_extranjeria']);
+            $table->string('number_doc', 12);
+            $table->boolean('status')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
