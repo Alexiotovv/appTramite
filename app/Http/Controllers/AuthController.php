@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Http\Requests\Auth\Login;
 use Illuminate\Support\Facades\Log;
 use App\Services\Tokens\TokenFactory;
+use App\Services\Tokens\TokenService;
+use App\Exceptions\Services\Tokens;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -40,7 +42,6 @@ class AuthController extends Controller
             Log::error(get_class($this) . 'method : ' .  __FUNCTION__ . ': ' . $e->getMessage());
             return response()->json([
                 'message'=>'Estamos experimentando problemas temporales',
-                $e->getMessage()
             ], 500);
         }   
     }
@@ -49,9 +50,15 @@ class AuthController extends Controller
     {
         try{
             $user = $request->user();
+            list($tokenOperation, $tokenUpdate) = TokenService::refreshTokens($user);
             return response()->json([
-
-            ]);
+                'tokenOperation' => $tokenOperation,
+                'tokenUpdate' => $tokenUpdate
+            ], 200);
+        }catch(Tokens $e){
+            return response()->json([
+                'message' => $e->getMessage()
+            ], 401);
         }catch(Exception $e){
             Log::error(get_class($this) . 'method : ' .  __FUNCTION__ . ': ' . $e->getMessage());
             return response()->json([
@@ -60,13 +67,19 @@ class AuthController extends Controller
         }
     }
 
-
     public function logout(Request $request)
     {
-        $user = $request->user();
-        $user->tokens()->delete();
-        return response()->json([
-            'message' => 'clario'
-        ], 200);
+        try{
+            $user = $request->user();
+            $user->tokens()->delete();
+            return response()->json([
+                'message' => 'clario'
+            ], 200);
+        }catch(Exception $e){
+            Log::error(get_class($this) . 'method :' . __FUNCTION__ . ':' . $e->getMessage());
+            return response()->json([
+                'message' => 'Estamos experimentando problemas temporales'
+            ], 500);
+        }
     }
 }

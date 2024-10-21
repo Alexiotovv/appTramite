@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->enum('type_doc', ['dni', 'carnet_extranjeria']);
             $table->string('number_doc', 12);
-            $table->string('role', 100)->nullable()->default('asistente');
             $table->boolean('status')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
