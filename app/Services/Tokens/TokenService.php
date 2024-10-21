@@ -7,9 +7,8 @@ use App\Models\User;
 class TokenService
 {
 
-    
     public function __construct()
     {
-        //
+        
     }
 }
