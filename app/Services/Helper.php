@@ -1,7 +1,6 @@
 <?php 
 
-use Illuminate\Validation\Validator; 
-use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\Validator;
 
 function messageValidation(Validator $validator): string 
 {
