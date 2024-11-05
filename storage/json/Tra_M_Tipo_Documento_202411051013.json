@@ -1,0 +1,398 @@
+[
+	{
+		"cDescTipoDoc" : "ACTA"
+	},
+	{
+		"cDescTipoDoc" : "ACTA DE REINICIO DE OBRA"
+	},
+	{
+		"cDescTipoDoc" : "ACTA DE SUSPENSION DE OBRA"
+	},
+	{
+		"cDescTipoDoc" : "ADENDA"
+	},
+	{
+		"cDescTipoDoc" : "BOLETA DE DESCANZO"
+	},
+	{
+		"cDescTipoDoc" : "CARPETA FISCAL"
+	},
+	{
+		"cDescTipoDoc" : "CARTA"
+	},
+	{
+		"cDescTipoDoc" : "CARTA C-F"
+	},
+	{
+		"cDescTipoDoc" : "CARTA CIRCULAR"
+	},
+	{
+		"cDescTipoDoc" : "CARTA DE COTIZACION"
+	},
+	{
+		"cDescTipoDoc" : "CARTA DE NOTIFICACION"
+	},
+	{
+		"cDescTipoDoc" : "CARTA NOTARIAL"
+	},
+	{
+		"cDescTipoDoc" : "CEDULA DE NOTIFICACION"
+	},
+	{
+		"cDescTipoDoc" : "CERTIFICACION"
+	},
+	{
+		"cDescTipoDoc" : "CERTIFICACION DE CREDITO PRESUPUESTARIO - CCP"
+	},
+	{
+		"cDescTipoDoc" : "CERTIFICACIÓN DE PESCADOR ARTESANAL"
+	},
+	{
+		"cDescTipoDoc" : "CERTIFICADO DE EJECUCION DE OBRA"
+	},
+	{
+		"cDescTipoDoc" : "CITACION"
+	},
+	{
+		"cDescTipoDoc" : "CITACION DE PROCESOS ADMINISTRATIVOS"
+	},
+	{
+		"cDescTipoDoc" : "COMUNICADO"
+	},
+	{
+		"cDescTipoDoc" : "CONSTANCIA"
+	},
+	{
+		"cDescTipoDoc" : "CONSTANCIA DE ACTIVIDAD"
+	},
+	{
+		"cDescTipoDoc" : "CONSTANCIA DE CONFORMIDAD DE BIENES"
+	},
+	{
+		"cDescTipoDoc" : "CONSTANCIA DE PESCADOR ARTESANAL"
+	},
+	{
+		"cDescTipoDoc" : "CONSTANCIA DE SERVICIO"
+	},
+	{
+		"cDescTipoDoc" : "CONTRATO"
+	},
+	{
+		"cDescTipoDoc" : "CONVENIO"
+	},
+	{
+		"cDescTipoDoc" : "CORREO"
+	},
+	{
+		"cDescTipoDoc" : "COTIZACION"
+	},
+	{
+		"cDescTipoDoc" : "DECRETO REGIONAL"
+	},
+	{
+		"cDescTipoDoc" : "DETALLE DE GASTO"
+	},
+	{
+		"cDescTipoDoc" : "DETALLE DE VALORIZACION"
+	},
+	{
+		"cDescTipoDoc" : "DICTAMEN LEGAL"
+	},
+	{
+		"cDescTipoDoc" : "DISPOSICION FISCAL"
+	},
+	{
+		"cDescTipoDoc" : "ESQUELA"
+	},
+	{
+		"cDescTipoDoc" : "EXPEDIENTE"
+	},
+	{
+		"cDescTipoDoc" : "EXPOSICIÓN DE MOTIVOS"
+	},
+	{
+		"cDescTipoDoc" : "FACTURA"
+	},
+	{
+		"cDescTipoDoc" : "FORMATO"
+	},
+	{
+		"cDescTipoDoc" : "FORMATO 1"
+	},
+	{
+		"cDescTipoDoc" : "FORMATO 2"
+	},
+	{
+		"cDescTipoDoc" : "FORMATO 23"
+	},
+	{
+		"cDescTipoDoc" : "FORMATO 3"
+	},
+	{
+		"cDescTipoDoc" : "FORMATO 7"
+	},
+	{
+		"cDescTipoDoc" : "FORMATO 8"
+	},
+	{
+		"cDescTipoDoc" : "HOJA DE TRAMITE"
+	},
+	{
+		"cDescTipoDoc" : "HOJA INFORMATIVA"
+	},
+	{
+		"cDescTipoDoc" : "INFORME"
+	},
+	{
+		"cDescTipoDoc" : "INFORME ARQUEO"
+	},
+	{
+		"cDescTipoDoc" : "INFORME DE OEC"
+	},
+	{
+		"cDescTipoDoc" : "INFORME DE PRECALIFICACION"
+	},
+	{
+		"cDescTipoDoc" : "INFORME DEL ORGANO INSTRUCTOR"
+	},
+	{
+		"cDescTipoDoc" : "INFORME ESCALAFONARIO"
+	},
+	{
+		"cDescTipoDoc" : "INFORME FINAL"
+	},
+	{
+		"cDescTipoDoc" : "INFORME FINANCIERO"
+	},
+	{
+		"cDescTipoDoc" : "INFORME LEGAL"
+	},
+	{
+		"cDescTipoDoc" : "INFORME TECNICO"
+	},
+	{
+		"cDescTipoDoc" : "INFORME TECNICO LEGAL"
+	},
+	{
+		"cDescTipoDoc" : "INVITACION"
+	},
+	{
+		"cDescTipoDoc" : "MEMORANDUM"
+	},
+	{
+		"cDescTipoDoc" : "MEMORIAL"
+	},
+	{
+		"cDescTipoDoc" : "NOTA"
+	},
+	{
+		"cDescTipoDoc" : "NOTA DE ELEVACIÓN"
+	},
+	{
+		"cDescTipoDoc" : "NOTAS"
+	},
+	{
+		"cDescTipoDoc" : "NOTIFICACION"
+	},
+	{
+		"cDescTipoDoc" : "OFICIO"
+	},
+	{
+		"cDescTipoDoc" : "OFICIO C-F"
+	},
+	{
+		"cDescTipoDoc" : "OFICIO CIRCULAR"
+	},
+	{
+		"cDescTipoDoc" : "OFICIO ELECTRONICO"
+	},
+	{
+		"cDescTipoDoc" : "OFICIOS DE OEC"
+	},
+	{
+		"cDescTipoDoc" : "OPINION LEGAL"
+	},
+	{
+		"cDescTipoDoc" : "OPINION TECNICA"
+	},
+	{
+		"cDescTipoDoc" : "ORDEN DE COMPRA"
+	},
+	{
+		"cDescTipoDoc" : "ORDEN DE PAGO"
+	},
+	{
+		"cDescTipoDoc" : "ORDEN DE SERVICIO"
+	},
+	{
+		"cDescTipoDoc" : "ORDENANZA REGIONAL"
+	},
+	{
+		"cDescTipoDoc" : "PEDIDO DE COMPRA"
+	},
+	{
+		"cDescTipoDoc" : "PEDIDO DE SERVICIO"
+	},
+	{
+		"cDescTipoDoc" : "PLAN DE TRABAJO"
+	},
+	{
+		"cDescTipoDoc" : "PLANILLA"
+	},
+	{
+		"cDescTipoDoc" : "PLANILLA DE HABERES"
+	},
+	{
+		"cDescTipoDoc" : "PLANILLA DE MOVILIDAD"
+	},
+	{
+		"cDescTipoDoc" : "PLANILLA DE VIATICOS"
+	},
+	{
+		"cDescTipoDoc" : "PODER"
+	},
+	{
+		"cDescTipoDoc" : "PREVISION PRESUPUESTAL"
+	},
+	{
+		"cDescTipoDoc" : "PROFORMA"
+	},
+	{
+		"cDescTipoDoc" : "PRONUNCIAMIENTO"
+	},
+	{
+		"cDescTipoDoc" : "PROVEIDO"
+	},
+	{
+		"cDescTipoDoc" : "PROVIDENCIA"
+	},
+	{
+		"cDescTipoDoc" : "PROYECTO"
+	},
+	{
+		"cDescTipoDoc" : "PROYECTO DE BOLETA ONOMASTICO"
+	},
+	{
+		"cDescTipoDoc" : "PROYECTO DE BOLETA VACACIONAL"
+	},
+	{
+		"cDescTipoDoc" : "PROYECTO DE CARTA"
+	},
+	{
+		"cDescTipoDoc" : "PROYECTO DE INFORME"
+	},
+	{
+		"cDescTipoDoc" : "PROYECTO DE INFORME LEGAL"
+	},
+	{
+		"cDescTipoDoc" : "PROYECTO DE INFORME TECNICO"
+	},
+	{
+		"cDescTipoDoc" : "PROYECTO DE MEMORANDO"
+	},
+	{
+		"cDescTipoDoc" : "PROYECTO DE MEMORANDUM MULTIPLE"
+	},
+	{
+		"cDescTipoDoc" : "PROYECTO DE OFICIO"
+	},
+	{
+		"cDescTipoDoc" : "PROYECTO DE OFICIO CIRCULAR"
+	},
+	{
+		"cDescTipoDoc" : "PROYECTO DE OFICIO MULTIPLE"
+	},
+	{
+		"cDescTipoDoc" : "PROYECTO DE RESOLUCION ADMINISTRATIVA"
+	},
+	{
+		"cDescTipoDoc" : "PROYECTO DE RESOLUCION ADMINISTRATIVA REGIONAL"
+	},
+	{
+		"cDescTipoDoc" : "PROYECTO DE RESOLUCION DIRECTORAL"
+	},
+	{
+		"cDescTipoDoc" : "PROYECTO DE RESOLUCION EJECUTIVA"
+	},
+	{
+		"cDescTipoDoc" : "PROYECTO DE RESOLUCION GERENCIAL ADMINISTRATIVA RE"
+	},
+	{
+		"cDescTipoDoc" : "PROYECTO RESOLUCION GERENCIAL"
+	},
+	{
+		"cDescTipoDoc" : "PROYECTO RESOLUCION GERENCIAL REGIONAL"
+	},
+	{
+		"cDescTipoDoc" : "RECIBO"
+	},
+	{
+		"cDescTipoDoc" : "RELACION NUMERADA"
+	},
+	{
+		"cDescTipoDoc" : "RENDICIONES"
+	},
+	{
+		"cDescTipoDoc" : "RENOVACIÓN DE JUNTA DIRECTIVA"
+	},
+	{
+		"cDescTipoDoc" : "REQUERIMIENTO"
+	},
+	{
+		"cDescTipoDoc" : "RESOLUCION"
+	},
+	{
+		"cDescTipoDoc" : "RESOLUCION ADMINISTRATIVA"
+	},
+	{
+		"cDescTipoDoc" : "RESOLUCION ADMINISTRATIVA REGIONAL"
+	},
+	{
+		"cDescTipoDoc" : "RESOLUCION COACTIVA"
+	},
+	{
+		"cDescTipoDoc" : "RESOLUCION DE COMITE TECNICO"
+	},
+	{
+		"cDescTipoDoc" : "RESOLUCION DEL ORGANO INSTRUCTOR"
+	},
+	{
+		"cDescTipoDoc" : "RESOLUCION DEL ORGANO SANCIONADOR"
+	},
+	{
+		"cDescTipoDoc" : "RESOLUCION DIRECTORAL"
+	},
+	{
+		"cDescTipoDoc" : "RESOLUCION EJECUTIVA DIRECTORAL"
+	},
+	{
+		"cDescTipoDoc" : "RESOLUCION EJECUTIVA REGIONAL"
+	},
+	{
+		"cDescTipoDoc" : "RESOLUCION GERENCIAL"
+	},
+	{
+		"cDescTipoDoc" : "RESOLUCION GERENCIAL ADMINISTRATIVA REGIONAL"
+	},
+	{
+		"cDescTipoDoc" : "RESOLUCION GERENCIAL GENERAL REGIONAL"
+	},
+	{
+		"cDescTipoDoc" : "RESOLUCION GERENCIAL REGIONAL"
+	},
+	{
+		"cDescTipoDoc" : "RESUMEN EJECUTIVO"
+	},
+	{
+		"cDescTipoDoc" : "SOBRE CERRADO"
+	},
+	{
+		"cDescTipoDoc" : "SOLICITUD"
+	},
+	{
+		"cDescTipoDoc" : "SUMILLA"
+	},
+	{
+		"cDescTipoDoc" : "VALORIZACIONES"
+	}
+]
