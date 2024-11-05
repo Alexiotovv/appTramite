@@ -1,0 +1,180 @@
+{
+"Tra_M_Indicaciones": [
+	{
+		"cIndicacion" : "AUTORIZADO"
+	},
+	{
+		"cIndicacion" : "CUMPLIMIENTO MANDATO JUDICIAL"
+	},
+	{
+		"cIndicacion" : "CONOCIMIENTO Y FINES PERTINENTES"
+	},
+	{
+		"cIndicacion" : "DISPONER ACCIONES CORRESPONDIENTES"
+	},
+	{
+		"cIndicacion" : "OPINION LEGAL Y OPINION PPTAL"
+	},
+	{
+		"cIndicacion" : "EMITIR INFORME TÉCNICO"
+	},
+	{
+		"cIndicacion" : "EVALUACIÓN Y ATENCIÓN"
+	},
+	{
+		"cIndicacion" : "IMPLEMENTAR RECOMENDACIONES"
+	},
+	{
+		"cIndicacion" : "PARA EJECUCIÓN"
+	},
+	{
+		"cIndicacion" : "OBSERVACIONES"
+	},
+	{
+		"cIndicacion" : "POR CORRESPONDER"
+	},
+	{
+		"cIndicacion" : "PROYECTAR RESPUESTA"
+	},
+	{
+		"cIndicacion" : "REVISIÓN Y V°B°"
+	},
+	{
+		"cIndicacion" : "PROYECTAR RESOLUCIÓN"
+	},
+	{
+		"cIndicacion" : "PROC. DE ACUERDO A DISPO, PPTAL FIN"
+	},
+	{
+		"cIndicacion" : "AGENDA"
+	},
+	{
+		"cIndicacion" : "APROBACIÓN"
+	},
+	{
+		"cIndicacion" : "ARCHIVAR"
+	},
+	{
+		"cIndicacion" : "ASISTIR E INFORMAR"
+	},
+	{
+		"cIndicacion" : "CERTIFICACIÓN PRESUPUESTAL"
+	},
+	{
+		"cIndicacion" : "COORDINAR"
+	},
+	{
+		"cIndicacion" : "CORREGIR"
+	},
+	{
+		"cIndicacion" : "DENEGAR"
+	},
+	{
+		"cIndicacion" : "DEVOLVER"
+	},
+	{
+		"cIndicacion" : "DISTRIBUIR"
+	},
+	{
+		"cIndicacion" : "PUBLICAR"
+	},
+	{
+		"cIndicacion" : "EVALUACIÓN Y OPINIÓN TÉCNICA"
+	},
+	{
+		"cIndicacion" : "PROY. RESOL ADMINISTRATIVA REG"
+	},
+	{
+		"cIndicacion" : "ATENCIÓN"
+	},
+	{
+		"cIndicacion" : "EMITIR INFORME"
+	},
+	{
+		"cIndicacion" : "OPINIÓN LEGAL"
+	},
+	{
+		"cIndicacion" : "AFECTACIÓN PRESUPUESTAL"
+	},
+	{
+		"cIndicacion" : "DEVOLVER POR RESTRICCIÓN PRESUPUESTAL"
+	},
+	{
+		"cIndicacion" : "LEGAJO PERSONAL"
+	},
+	{
+		"cIndicacion" : "REMITO INFORMACIÓN"
+	},
+	{
+		"cIndicacion" : "FIRMAR Y DISTRIBUIR"
+	},
+	{
+		"cIndicacion" : "URGENTE"
+	},
+	{
+		"cIndicacion" : "REVISIÓN Y CUSTODIA"
+	},
+	{
+		"cIndicacion" : "ELABORAR COSTANCIA. PAGO HABERES Y DSCTO."
+	},
+	{
+		"cIndicacion" : "FIRMA Y VISACIÓN "
+	},
+	{
+		"cIndicacion" : "FIRMA"
+	},
+	{
+		"cIndicacion" : "VISACIÓN"
+	},
+	{
+		"cIndicacion" : "INSPECCIONAR E INFORMAR"
+	},
+	{
+		"cIndicacion" : "MODIFICAR CCP"
+	},
+	{
+		"cIndicacion" : "AUTORIZAR FASE DEVENGADO"
+	},
+
+	{
+		"cIndicacion" : "CONOCIMIENTO"
+	},
+	{
+		"cIndicacion" : "VER OBSERVACIONES"
+	},
+	{
+		"cIndicacion" : "REVISIÓN Y OPINIÓN PRESUPUESTAL"
+	},
+	{
+		"cIndicacion" : "EVALUAR DISPONIBILIDAD PPTAL"
+	},
+	{
+		"cIndicacion" : "EVALUACION E INFORME TECNICO "
+	},
+	{
+		"cIndicacion" : "CONSIDERARLO EN AGENDA "
+	},
+	{
+		"cIndicacion" : "EVALUAR Y COORDINAR"
+	},
+	{
+		"iCodIndicacion" : 63,
+		"cIndicacion" : "EVALUACION Y OPINION LEGAL "
+	},
+	{
+		"iCodIndicacion" : 64,
+		"cIndicacion" : "ATENCION URGENTE "
+	},
+	{
+		"iCodIndicacion" : 65,
+		"cIndicacion" : "REVISION E INFORME RESPECTIVO"
+	},
+	{
+		"iCodIndicacion" : 66,
+		"cIndicacion" : "TRAMITE DE ACUERDO DE LEY"
+	},
+	{
+		"iCodIndicacion" : 67,
+		"cIndicacion" : "NOTIFICAR"
+	}
+]}
