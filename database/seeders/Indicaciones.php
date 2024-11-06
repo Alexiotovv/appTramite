@@ -18,11 +18,23 @@ class Indicaciones extends Seeder
         try{
             $file = json_decode(file_get_contents(storage_path('json/Tra_M_Indicaciones_202411051156.json')));
             DB::transaction();
-            
+            $data = [];
+            foreach($file AS $item){
+                $data[] = [
+                    'name' => $item->cIndicacion,
+                    'created_at' => now()
+                ];
+            }
+            $this->store($data);
             DB::rollBack();
         }catch(Exception $e){
             Log::error(get_class($this) . ':' . $e->getMessage());
             DB::rollBack();
         }
+    }
+
+    private function store(array $data)
+    {
+        DB::table('indicacion')->insert($data);
     }
 }

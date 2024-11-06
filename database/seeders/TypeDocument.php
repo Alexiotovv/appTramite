@@ -8,7 +8,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
-class Offices extends Seeder
+class TypeDocument extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,8 +20,8 @@ class Offices extends Seeder
             $docs = [];
             foreach($file AS $doc){
                 $docs[] = [
-                    'nombre' => $doc->cDescTipoDoc,
-                    'sigla' => $this->makeInitial(str_replace(' ', ' ',$doc->cDescTipoDoc)),
+                    'name' => $doc->cDescTipoDoc,
+                    'init' => $this->makeInitial(str_replace(' ', ' ',$doc->cDescTipoDoc)),
                     'created_at' => now()
                 ];
             }
@@ -37,7 +37,7 @@ class Offices extends Seeder
 
     private function docStorage(array $docs)
     {
-        DB::table('tipo_documento')->insert($docs);
+        DB::table('type_document')->insert($docs);
     }
     
     private function makeInitial(string $name): string

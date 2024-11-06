@@ -1,5 +1,4 @@
-{
-"Tra_M_Indicaciones": [
+[
 	{
 		"cIndicacion" : "AUTORIZADO"
 	},
@@ -135,7 +134,6 @@
 	{
 		"cIndicacion" : "AUTORIZAR FASE DEVENGADO"
 	},
-
 	{
 		"cIndicacion" : "CONOCIMIENTO"
 	},
@@ -158,23 +156,15 @@
 		"cIndicacion" : "EVALUAR Y COORDINAR"
 	},
 	{
-		"iCodIndicacion" : 63,
-		"cIndicacion" : "EVALUACION Y OPINION LEGAL "
+		"cIndicacion" : "EVALUACIÓN Y OPINIÓN LEGAL"
 	},
 	{
-		"iCodIndicacion" : 64,
 		"cIndicacion" : "ATENCION URGENTE "
 	},
 	{
-		"iCodIndicacion" : 65,
-		"cIndicacion" : "REVISION E INFORME RESPECTIVO"
-	},
-	{
-		"iCodIndicacion" : 66,
 		"cIndicacion" : "TRAMITE DE ACUERDO DE LEY"
 	},
 	{
-		"iCodIndicacion" : 67,
 		"cIndicacion" : "NOTIFICAR"
 	}
-]}
+]

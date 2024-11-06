@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tipo_documento', function (Blueprint $table) {
+        Schema::create('offices', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('sigla', 10);
+            $table->string('init', 50)->nullable();
+            $table->string('name', 150)->nullable();
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tipo_documento');
+        Schema::dropIfExists('offices');
     }
 };
