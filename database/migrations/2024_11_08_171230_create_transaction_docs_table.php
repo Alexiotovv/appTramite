@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('indicacion', function (Blueprint $table) {
+        Schema::create('transaction_docs', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->boolean('status')->default(1);
+            $table->foreignId('transaction_reception_id')->constrained('transaction_reception');
+            $table->string('name_file');
+            $table->string('path_file');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('indicacion');
+        Schema::dropIfExists('transaction_docs');
     }
 };

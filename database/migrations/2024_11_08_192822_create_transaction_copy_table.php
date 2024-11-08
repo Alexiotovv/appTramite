@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('type_document', function (Blueprint $table) {
+        Schema::create('transaction_copy', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('init', 10);
+            $table->foreignId('transaction_record_id')->constrained('transaction_record');
+            $table->foreignId('office_id_end')->constrained('office');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('type_document');
+        Schema::dropIfExists('transaction_copy');
     }
 };
