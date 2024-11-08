@@ -18,7 +18,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('lastname');
+            $table->string('last_name');
             $table->string('email')->unique();
             $table->enum('type_doc', ['dni', 'carnet_extranjeria']);
             $table->string('number_doc', 12);
