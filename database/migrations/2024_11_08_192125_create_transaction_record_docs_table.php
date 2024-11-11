@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transaction_docs', function (Blueprint $table) {
+        Schema::create('transaction_record_docs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('transaction_record_id')->constrained('transaction_record');
             $table->string('name_origin');
             $table->string('path_file');
-            $table->foreignId('transaction_record_id')->nullable()->constrained('');
             $table->timestamps();
         });
     }

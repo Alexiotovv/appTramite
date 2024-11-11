@@ -18,7 +18,7 @@ return new class extends Migration
             $table->boolean('status')->default(1);
             $table->unsignedTinyInteger('level');
             $table->foreignId('group')->nullable()->constrained('office');
-            $table->boolean('is_reception_desk')->default('false');
+            $table->boolean('is_reception_desk')->default(0);
             $table->timestamps();
         });
     }
