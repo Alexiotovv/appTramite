@@ -11,15 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('template', function (Blueprint $table) {
+        Schema::create('transaction_reference', function (Blueprint $table) {
             $table->id();
-            $table->string('correlative');
             $table->foreignId('transaction_record_id')->constrained('transaction_record');
-            $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('office_id')->constrained('office');
-            $table->string('path_template')->nullable();
-            $table->string('subject')->nullable();
-            $table->unsignedTinyInteger('status');
+            $table->foreignId('transaction_record_reference')->constrained('trasaction_record');
             $table->timestamps();
         });
     }
@@ -29,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('template');
+        Schema::dropIfExists('transaction_reference');
     }
 };
