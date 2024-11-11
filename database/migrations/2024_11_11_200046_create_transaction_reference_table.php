@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('transaction_reference', function (Blueprint $table) {
             $table->id();
             $table->foreignId('transaction_record_id')->constrained('transaction_record');
-            $table->foreignId('transaction_record_reference')->constrained('trasaction_record');
+            $table->foreignId('transaction_record_reference')->constrained('transaction_record');
             $table->timestamps();
         });
     }
