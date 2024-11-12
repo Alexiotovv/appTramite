@@ -35,6 +35,6 @@ class Indicaciones extends Seeder
 
     private function store(array $data)
     {
-        DB::table('indicacion')->insert($data);
+        DB::table('indication')->insert($data);
     }
 }

@@ -37,7 +37,7 @@ class TypeDocument extends Seeder
 
     private function docStorage(array $docs)
     {
-        DB::table('type_document')->insert($docs);
+        DB::table('type_doc')->insert($docs);
     }
     
     private function makeInitial(string $name): string
