@@ -12,7 +12,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Concurrency;
 use App\Events\Login AS LoginE;
 use App\Events\Logout;
-use Illuminate\Support\Facades\Cache;
 
 class AuthController extends Controller
 {
@@ -52,7 +51,6 @@ class AuthController extends Controller
             $this->LogError(get_class($this), $e, __FUNCTION__);
             return response()->json([
                 'message'=>'Estamos experimentando problemas temporales',
-                $e->getMessage()
             ], 500);
         }   
     }
@@ -93,10 +91,5 @@ class AuthController extends Controller
                 'message' => 'Estamos experimentando problemas temporales'
             ], 500);
         }
-    }
-
-    public function retrive(int $id)
-    {
-        return Cache::get($id, 'no hay');
     }
 }
