@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -19,16 +20,14 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'name',
+        'last_name',
+        'email',
         'type_doc',
         'number_doc',
-        'name',
-        'lastname',
-        'email',
-        'password',
-        'role',
-        'status'
+        'status',
     ];
-
+    
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -67,6 +66,31 @@ class User extends Authenticatable
 
     public static function retriveUserFill(int $user)
     {
-
+        $query = DB::table('user_rol AS ur')
+            ->join('users AS u', 'u.id', '=', 'ur.user_id')
+            ->join('rol AS r', '=', 'r.id', '=', 'ur.rol_id')
+            ->join('rol_permission rp', 'rp.rol_id', '=', 'r.id')
+            ->leftJoin('user_office AS uo', 'uo.user_id', '=', 'u.id')
+            ->leftJoin('office AS o', 'uo.office_id', '=', '')
+            ->select(
+                'u.id',
+                DB::raw("CONCAT(u.name, ' ', u.last_name) AS fullname"), 
+                'u.mail',
+                'u.status',
+                'u.email',
+                'o.name AS officeName',
+                'o.id AS officeId',
+                'o.level AS officeLevel',
+                'o.group AS officeGroup',
+                DB::raw('
+                    GROUP_CONCAT(DISTINCT r.name ORDER BY r.name SEPARATOR "++") AS roles
+                '),
+                DB::raw('
+                    GROUP_CONCAT(DISTINCT p.name ORDER BY p.name SEPARATOR "++") AS permissions
+                ')
+            )
+            ->where('u.id', '=', $user)
+            ->groupBy('u.id')
+            ->first();        
     }
 }
