@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use stdClass;
 
 class User extends Authenticatable
 {
@@ -27,7 +28,7 @@ class User extends Authenticatable
         'number_doc',
         'status',
     ];
-    
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -64,18 +65,18 @@ class User extends Authenticatable
         return $user;
     }
 
-    public static function retriveUserFill(int $user)
+    public static function retriveUserFill(int|string $identifier, bool $isEmail = true): stdClass
     {
         $query = DB::table('user_rol AS ur')
             ->join('users AS u', 'u.id', '=', 'ur.user_id')
-            ->join('rol AS r', '=', 'r.id', '=', 'ur.rol_id')
-            ->join('rol_permission rp', 'rp.rol_id', '=', 'r.id')
+            ->join('rol AS r', 'r.id', '=', 'ur.rol_id')
+            ->join('rol_permission AS rp', 'rp.rol_id', '=', 'r.id')
+            ->join('permission AS p', 'p.id', '=', 'rp.permission_id')
             ->leftJoin('user_office AS uo', 'uo.user_id', '=', 'u.id')
-            ->leftJoin('office AS o', 'uo.office_id', '=', '')
+            ->leftJoin('office AS o', 'uo.office_id', '=', 'o.id')
             ->select(
                 'u.id',
                 DB::raw("CONCAT(u.name, ' ', u.last_name) AS fullname"), 
-                'u.mail',
                 'u.status',
                 'u.email',
                 'o.name AS officeName',
@@ -89,8 +90,20 @@ class User extends Authenticatable
                     GROUP_CONCAT(DISTINCT p.name ORDER BY p.name SEPARATOR "++") AS permissions
                 ')
             )
-            ->where('u.id', '=', $user)
-            ->groupBy('u.id')
-            ->first();        
+            ->where($isEmail ? 'u.email' : 'u.id', '=', $identifier)
+            ->groupBy('u.id', 'o.name', 'o.id', 'o.level', 'o.group')
+            ->first();
+        return (object) [
+            'userId' => $query->id,
+            'fullname' => $query->fullname,
+            'status' => $query->status, 
+            'email' => $query->email,
+            'officeName' => $query->officeName,
+            'officeId' => $query->officeId,
+            'officeLevel' => $query->officeLevel,
+            'officeGroup' => $query->officeGroup,
+            'roles' => explode('++', $query->roles),
+            'permissions' => explode('++', $query->permissions)
+        ];    
     }
 }

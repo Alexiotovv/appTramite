@@ -5,18 +5,27 @@ namespace App\Http\Controllers;
 use Exception;
 use App\Models\User;
 use App\Http\Requests\Auth\Login;
-use Illuminate\Support\Facades\Log;
 use App\Services\Tokens\TokenFactory;
 use App\Services\Tokens\TokenService;
 use App\Exceptions\Services\Tokens;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Concurrency;
+use App\Events\Login AS LoginE;
+use App\Events\Logout;
+use Illuminate\Support\Facades\Cache;
 
 class AuthController extends Controller
 {
     public function login(Login $request)
     {
         try{
-            $user = User::verifyCredentials($request->email, $request->password);
+            $email = $request->email;
+            $password = $request->password;
+            [$user, $metadaUser] = Concurrency::run([
+                fn() => User::verifyCredentials($email, $password),
+                fn() => User::retriveUserFill($email)
+            ]);
+
             if(!is_object($user)){
                 switch($user){
                     case 1:
@@ -31,17 +40,19 @@ class AuthController extends Controller
                 ], 401);
             }
             $user->tokens()->delete();
+            LoginE::dispatch($metadaUser);
             $tokenOperation = TokenFactory::create('operation');
             $tokenUpdate = TokenFactory::create('update');
             return response()->json([
-                'items' => $user,
+                'items' => $metadaUser,
                 'tokenOperation' => $tokenOperation->generate($user),
                 'tokenUpdate' => $tokenUpdate->generate($user)
             ], 200);
         }catch(Exception $e){
-            Log::error(get_class($this) . 'method : ' .  __FUNCTION__ . ': ' . $e->getMessage());
+            $this->LogError(get_class($this), $e, __FUNCTION__);
             return response()->json([
                 'message'=>'Estamos experimentando problemas temporales',
+                $e->getMessage()
             ], 500);
         }   
     }
@@ -60,7 +71,7 @@ class AuthController extends Controller
                 'message' => $e->getMessage()
             ], 401);
         }catch(Exception $e){
-            Log::error(get_class($this) . 'method : ' .  __FUNCTION__ . ': ' . $e->getMessage());
+            $this->LogError(get_class($this), $e, __FUNCTION__);
             return response()->json([
                 'message' => 'Estamos experimentando problemas'
             ], 500);
@@ -72,14 +83,20 @@ class AuthController extends Controller
         try{
             $user = $request->user();
             $user->tokens()->delete();
+            Logout::dispatch($user->id);
             return response()->json([
                 'message' => 'clario'
             ], 200);
         }catch(Exception $e){
-            Log::error(get_class($this) . 'method :' . __FUNCTION__ . ':' . $e->getMessage());
+            $this->LogError(get_class($this), $e, __FUNCTION__);
             return response()->json([
                 'message' => 'Estamos experimentando problemas temporales'
             ], 500);
         }
+    }
+
+    public function retrive(int $id)
+    {
+        return Cache::get($id, 'no hay');
     }
 }

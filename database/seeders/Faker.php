@@ -31,7 +31,7 @@ class Faker extends Seeder
             'type_doc' => 'dni',
             'number_doc' => 72727272,
             'email' => 'zoldyck@gmail.com',
-            'status' => random_int(0,1),
+            'status' => 1,
             'email_verified_at' => now(),
             'password' => Hash::make('marcelo22.--')
         ]);
