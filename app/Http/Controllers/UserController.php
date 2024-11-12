@@ -11,8 +11,6 @@ use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
-
-
     public function index(Request $request){
         try {
             $obj=User::all()->select('id','name','email','role','status');
@@ -80,8 +78,7 @@ class UserController extends Controller
         try {
             $validated = $request->validate([
                 'status_user' => 'required|integer|in:0,1', // Validar que sea entero y esté entre 0 y 1
-            ]);
-            
+            ]);   
             $user = User::findOrFail($user_id);
             $user->status = $validated['status_user'];
             $user->save();

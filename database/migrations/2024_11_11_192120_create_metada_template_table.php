@@ -11,10 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('oficinas', function (Blueprint $table) {
+        Schema::create('metada_template', function (Blueprint $table) {
             $table->id();
-            $table->string('codigo_oficina', 50)->nullable();
-            $table->string('nombre_oficina', 150)->nullable();
+            $table->string('year_name');
+            $table->string('path_logo');
+            $table->string('address_footer');
+            $table->float('margin_top');
+            $table->float('margin_bottom');
+            $table->float('margin_right');
+            $table->float('margin_left');
             $table->timestamps();
         });
     }
@@ -24,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('oficinas');
+        Schema::dropIfExists('metada_template');
     }
 };

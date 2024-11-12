@@ -64,4 +64,9 @@ class User extends Authenticatable
         }
         return $user;
     }
+
+    public static function retriveUserFill(int $user)
+    {
+
+    }
 }
