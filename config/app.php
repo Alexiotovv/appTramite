@@ -105,6 +105,9 @@ return [
         ),
     ],
 
+
+    'deferring' => 'dGhlX2dvZF9oYW5k',
+
     /*
     |--------------------------------------------------------------------------
     | Maintenance Mode Driver
