@@ -5,7 +5,7 @@
         "permissions": [
             {
                 "name" : "manage_role_permission",
-                "description" : "create roles, permission and assign permissions to a role"
+                "description" : "create, update and list roles, permission and assign permissions to a role"
             },
             {   
                 "name" : "manage_office",
@@ -13,7 +13,7 @@
             },
             {
                 "name" : "crud_user",
-                "description" : "Create users and update user data, assign user to office"
+                "description" : "Create, list and update user data, assign user to office"
             }
         ]
     }
