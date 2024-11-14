@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('office_id')->constrained('office');
             $table->string('access_token', 1000);
-            $table->string('indentify_code');
+            $table->string('identify_code');
             $table->timestamps();
         });
     }

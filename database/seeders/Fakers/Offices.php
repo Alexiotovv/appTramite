@@ -133,7 +133,7 @@ class Offices extends Seeder
         DB::table('office_token')->insert([
             'office_id' => $id,
             'access_token' => Str::random(8),
-            'indentify_code' => Str::random(4)
+            'identify_code' => Str::random(4)
         ]);
     }
 }
