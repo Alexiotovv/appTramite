@@ -13,4 +13,5 @@ Route::prefix('/v1/')->group(function(){
 
 Route::prefix('/v1/public/')->group(function(){
     Route::get('list/reception-desk', [OfficeController::class, 'getReceptionDesk']);
+    Route::post('reception-desk/transaction', []);
 });

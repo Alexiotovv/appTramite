@@ -31,5 +31,15 @@ class AppServiceProvider extends ServiceProvider
                 ], 429);
             });
         });
+
+        RateLimiter::for('default', function(Request $request){
+            return Limit::perMinute(1000)
+            ->by($request->user()?->id ?: $request->ip())
+            ->response(function(Request $request){
+                return response()->json([
+                    'message' => 'Ha excedido el limite de solicitudes'
+                ], 429);
+            });
+        });
     }
 }
