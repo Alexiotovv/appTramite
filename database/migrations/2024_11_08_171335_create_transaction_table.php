@@ -24,7 +24,8 @@ return new class extends Migration
             $table->boolean('is_multiple')->default(0);
             $table->unsignedTinyInteger('status');
             $table->foreignId('transaction_reception_id')->nullable()->constrained('transaction_reception');
-            $table->unsignedTinyInteger('type_origin');
+            $table->unsignedTinyInteger('type_origin'); 
+            $table->unsignedTinyInteger('type_transaction');
             $table->timestamps();
         });
     }

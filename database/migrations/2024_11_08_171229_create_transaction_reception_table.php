@@ -13,15 +13,22 @@ return new class extends Migration
     {
         Schema::create('transaction_reception', function (Blueprint $table) {
             $table->id();
-            $table->string('ruc_entity')->nullable();
-            $table->enum('type_doc_register', ['carnet', 'dni', 'ruc'])->nullable();
-            $table->string('number_doc')->nullable();
-            $table->string('reception_desk_code');
-            $table->string('organic_unit_code');
-            $table->string('subject')->nullable();
+            $table->string('ruc_entity_sender')->nullable();
+            $table->string('name_entity_sender')->nullable();
+            $table->string('organic_unit_sender')->nullable();
+            $table->string('cod_reference')->nullable();
+            $table->string('transaction_number_doc_sender');
+            $table->date('date_doc_sender');
+            $table->string('organic_unit_end'); 
+            $table->string('name_addressee')->nullable(); 
+            $table->string('job_title_addressee')->nullable();
+            $table->string('subject', 500);
+            $table->enum('type_doc_register', ['carnet', 'dni', 'ruc']);
+            $table->string('number_doc_register')->nullable();
+            $table->foreignId('user_id_assign')->constrained('users');
             $table->unsignedTinyInteger('status');
-            $table->unsignedTinyInteger('type_origin');
-            $table->string('code_public_entity')->nullable();
+            $table->string('reception_desk_code');
+            $table->string('public_unit_code');
             $table->timestamps();
         });
     }

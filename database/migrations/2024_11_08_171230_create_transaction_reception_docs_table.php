@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transaction_docs', function (Blueprint $table) {
+        Schema::create('transaction_reception_docs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('transaction_reception_id')->constrained('transaction_reception');
             $table->string('name_file');

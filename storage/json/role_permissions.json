@@ -18,6 +18,10 @@
             {
                 "name" : "migrate_data_user",
                 "description" : ""
+            },
+            {
+                "name" : "list_office",
+                "description" : "list offices"
             }
         ]
     }
