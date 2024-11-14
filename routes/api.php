@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OfficeController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 
 Route::prefix('/v1/')->group(function(){
@@ -13,5 +14,5 @@ Route::prefix('/v1/')->group(function(){
 
 Route::prefix('/v1/public/')->group(function(){
     Route::get('list/reception-desk', [OfficeController::class, 'getReceptionDesk']);
-    Route::post('reception-desk/transaction', []);
+    Route::post('reception-desk/transaction', [TransactionController::class, 'storeReceptionDesk']);
 });
