@@ -5,10 +5,10 @@ namespace Database\Seeders\Fakers;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class Offices extends Seeder
 {
-
     private $office = [
         [
             "name" =>'GERENCIA REGIONAL',
@@ -102,13 +102,16 @@ class Offices extends Seeder
         DB::transaction(function(){
             $ids = $this->makeOfficesLevelOne();
             foreach($this->officeLow as $value){
-                DB::table('office')->insert([
+                $id = DB::table('office')->insertGetId([
                     'name' => $value['name'],
                     'init' => $value['init'],
                     'level' => $value['level'],
                     'group' => $ids[random_int(0,3)],
                     'is_reception_desk' => $value['is_reception_desk']
                 ]);
+                if($value['is_reception_desk'] == 1){
+                    $this->makeTokenOffice($id);
+                }
             }
         }); 
     }
@@ -125,4 +128,12 @@ class Offices extends Seeder
         return $keys;
     }
 
+    public function makeTokenOffice(int $id)
+    {
+        DB::table('office_token')->insert([
+            'office_id' => $id,
+            'access_token' => Str::random(8),
+            'indentify_code' => Str::random(4)
+        ]);
+    }
 }
