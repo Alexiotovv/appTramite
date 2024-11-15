@@ -19,7 +19,6 @@ return new class extends Migration
             $table->foreignId('type_doc')->constrained('type_doc');
             $table->foreignId('user_id_register')->constrained('users');
             $table->string('number_record')->unique();
-            $table->string('code_public');
             $table->boolean('is_public')->default(0);
             $table->boolean('is_multiple')->default(0);
             $table->unsignedTinyInteger('status');

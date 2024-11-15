@@ -19,3 +19,14 @@ function randomCode(?int $long = 8): string
     }
     return $code;
 }
+
+function transactionCode($prefix = 'JYC', $a = 1664525, $c = 1013904223, $m = 2 **32)
+{
+    $seed = round(microtime(true)*1000);
+    $code = ($a*$seed + $c) % $m;
+    if(strlen($code) < 10){
+        $code = str_pad($code, 10, '0', STR_PAD_LEFT);
+    }
+    $code = base64_encode($code);
+    return is_null($prefix) ?  $prefix . '-' . $code :  $code;
+}

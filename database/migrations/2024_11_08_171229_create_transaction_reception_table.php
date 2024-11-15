@@ -28,7 +28,7 @@ return new class extends Migration
             $table->unsignedTinyInteger('status');
             $table->foreignId('user_id_assign')->constrained('users');
             $table->foreignId('office_id')->constrained('office');
-            $table->string('public_unit_code');
+            $table->string('public_unit_code')->unique();
             $table->timestamps();
         });
     }

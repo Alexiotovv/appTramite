@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('metada_template', function (Blueprint $table) {
+        Schema::create('metadata_template', function (Blueprint $table) {
             $table->id();
             $table->string('year_name');
             $table->string('path_logo');
