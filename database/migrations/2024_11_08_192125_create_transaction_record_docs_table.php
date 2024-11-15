@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('transaction_record_docs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('transaction_record_id')->constrained('transaction_record');
-            $table->string('name_origin');
+            $table->unsignedTinyInteger('type_path');
+            $table->string('name_origin')->nullable();
             $table->string('path_file');
             $table->timestamps();
         });
