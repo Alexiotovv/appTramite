@@ -18,6 +18,18 @@ class StoreRD extends Template
     public function rules(): array
     {
         return [
+            'ruc_entity_remitente' => 'nullable|integer|max:255',
+            'name_entity_remitente' => 'nullable|string|max:255',
+            'organic_unit_sender' => 'nullable|string|max:255',
+            'cod_reference' => 'nullable|string|max:255',
+            'transaction_number_doc_remitente' => 'required|string|max:255',
+            'date_doc_remitente' => 'required|date',
+            'organic_unit_destino' => 'required|string|max:255',
+            'name_destinatario' => 'nullable|string|max:255',
+            'job_title_destinatario' => 'nullable|string|max:255',
+            'subject' => 'required|string|max:255',
+            'type_doc_register' => 'required|in:carnet,dni,ruc',
+            'ruc'
             'doc_main' => [
                 'required',
                 'mimetypes:application/pdf',
