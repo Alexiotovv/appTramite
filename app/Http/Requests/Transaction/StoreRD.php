@@ -29,7 +29,8 @@ class StoreRD extends Template
             'job_title_destinatario' => 'nullable|string|max:255',
             'subject' => 'required|string|max:255',
             'type_doc_register' => 'required|in:carnet,dni,ruc',
-            'ruc'
+            'number_doc_register' => 'required|string|max',
+            'reception_desk_code' => 'required'
             'doc_main' => [
                 'required',
                 'mimetypes:application/pdf',

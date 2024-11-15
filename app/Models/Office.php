@@ -18,15 +18,22 @@ class Office extends Model
 
     public static function receptionDesk(): \Illuminate\Database\Eloquent\Collection
     { 
-        return self::join('office_token AS ot', 'ot.office_id', '=', 'office.id')->select(
+        return self::join('office_token AS ot', 'ot.office_id', '=', 'office.id')
+            ->select(
                 'office.id',
                 'office.name',
-                'office.init',
-                'ot.identify_code'
+                'office.init'
             )
             ->where('office.status', 1)
             ->where('office.is_reception_desk', 1)
-            ->get();
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'reception_desk_code' => base64_encode($item->id),
+                    'name' => $item->name,
+                    'init' => $item->init,
+                ];
+            });
         ;
     }
 }

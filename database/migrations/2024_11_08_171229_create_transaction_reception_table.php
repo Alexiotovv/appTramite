@@ -27,7 +27,8 @@ return new class extends Migration
             $table->string('number_doc_register')->nullable();
             $table->foreignId('user_id_assign')->constrained('users');
             $table->unsignedTinyInteger('status');
-            $table->string('reception_desk_code');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('office_id')->constrained('office');
             $table->string('public_unit_code');
             $table->timestamps();
         });

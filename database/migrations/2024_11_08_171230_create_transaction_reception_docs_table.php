@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('transaction_reception_docs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('transaction_reception_id')->constrained('transaction_reception');
+            $table->unsignedTinyInteger('type_path');
             $table->string('name_file');
             $table->string('path_file');
             $table->timestamps();
