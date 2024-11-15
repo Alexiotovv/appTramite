@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Transaction;
 
 use App\Http\Requests\Template;
+use App\Rules\VerifyFormDataFiles;
 
 /**
  * Validate data for store request desk
@@ -19,7 +20,8 @@ class StoreRD extends Template
         return [
             'doc_main' => [
                 'required',
-                'mimetypes:application/pdf'
+                'mimetypes:application/pdf',
+                new VerifyFormDataFiles('receptionDesk')
             ]
         ];
     }

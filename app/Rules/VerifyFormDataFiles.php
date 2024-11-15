@@ -3,18 +3,43 @@
 namespace App\Rules;
 
 use Closure;
+use Exception;
 use Illuminate\Contracts\Validation\ValidationRule;
 
 class VerifyFormDataFiles implements ValidationRule
 {
     public function __construct(public string $format){}
-    /**
-     * Run the validation rule.
-     *
-     * @param  \Closure(string, ?string=): \Illuminate\Translation\PotentiallyTranslatedString  $fail
-     */
+
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        switch($va)
+        if(!is_array($value)){
+            $fail("El campo $attribute no es tiene el formato requerido para esta solicitud");
+            return;
+        }
+        try{
+            switch($this->format){
+                case 'receptionDesk':
+                    $this->receptionDesk($value);
+                break;
+            }
+        }catch(Exception $e){
+            $fail($e->getMessage());
+        }
+    }
+
+    private function receptionDesk(mixed $value): bool
+    {
+        foreach($value as $index => $fileData){
+            if (!isset($fileData['name']) || !isset($fileData['doc'])) {
+                $i = $index+1;
+                throw new Exception("El archivo en la posición {$i} debe incluir un campo 'name' y un archivo 'doc'.");
+            }
+            $file = $fileData['doc'];
+            if (!$file->isValid() || $file->getMimeType() !== 'application/pdf') {
+                $j = $index+1;
+                throw new Exception("El archivo en la posición {$j} debe ser un PDF válido.");
+            }
+        }
+        return true;
     }
 }
