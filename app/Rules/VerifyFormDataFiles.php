@@ -38,6 +38,9 @@ class VerifyFormDataFiles implements ValidationRule
             if (!$file->isValid() || $file->getMimeType() !== 'application/pdf') {
                 $j = $index+1;
                 throw new Exception("El archivo en la posición {$j} debe ser un PDF válido.");
+                if($file->getSize() > 20 * 1024 * 1024){
+                    throw new Exception("El archivo en la posición {$j} debe supera los 20MB permitidos por archivo.");
+                }
             }
         }
         return true;

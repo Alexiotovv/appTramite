@@ -29,11 +29,15 @@ class StoreRD extends Template
             'job_title_destinatario' => 'nullable|string|max:255',
             'subject' => 'required|string|max:255',
             'type_doc_register' => 'required|in:carnet,dni,ruc',
-            'number_doc_register' => 'required|string|max',
-            'reception_desk_code' => 'required'
+            'number_doc_register' => 'required|string|max:255',
+            'reception_desk_code' => 'required|string|max:255',
             'doc_main' => [
                 'required',
-                'mimetypes:application/pdf',
+                'max:20480',
+                'mimetypes:application/pdf'
+            ],
+            'doc_anexos' => [
+                'nullable',
                 new VerifyFormDataFiles('receptionDesk')
             ]
         ];
@@ -43,7 +47,14 @@ class StoreRD extends Template
     {
         return [
             'doc_main.mimetypes' => 'Solo se aceptan archivos pdf en el documento principal',
-            
+            'doc_main.max' => 'El archivo no debe superar los 20MB'
         ];
+    }
+
+    protected function passedValidation(): void
+    {
+        $this->replace([
+            'reception_desk_code' => base64_decode(request()->reception_desk_code)
+        ]);
     }
 }
