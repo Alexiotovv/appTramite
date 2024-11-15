@@ -8,17 +8,28 @@ use App\Http\Requests\Transaction\StoreRD;
 use App\Models\User;
 use App\Models\TransactionReception;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Concurrency;
 
 class TransactionController extends Controller
 {
     public function storeReceptionDesk(StoreRD $request): JsonResponse
     {
         try{
-            do{
-                $codeUnique = transactionCode('JYC');
-                $exists =TransactionReception::where('public_unit_code', $codeUnique)->exists();
-            }while($exists == true);
+            [$codeUnique, $userId] = Concurrency::driver('sync')->run(
+                function (){
+                    do{
+                        $codeUnique = transactionCode('JYC');
+                        $exists =TransactionReception::where('public_unit_code', $codeUnique)->exists();
+                    } while($exists == true);
+                    return $codeUnique;
+                },
+                function () {
+                    
+                }
+            );
+
             DB::transaction(function() use ($request){
+                
             });
 
             return response()->json(['message' => ''], 201);
