@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\Fakers\Offices;
 use Database\Seeders\Fakers\Faker;
 use Database\Seeders\RolePermissions;
+use Database\Seeders\Fakers\Users;
 
 class Fakers extends Seeder
 {
@@ -16,9 +17,10 @@ class Fakers extends Seeder
     public function run(): void
     {
         $this->call([
-            Offices::class,
+            //Offices::class,
             RolePermissions::class,
-            Faker::class,
+            Users::class
+            //Faker::class,
         ]);
     }
 }

@@ -24,5 +24,19 @@
                 "description" : "list offices"
             }
         ]
+    },
+    {
+        "role": "reception_desk",
+        "description" : "manage documents from reception desk",
+        "permissions" : [
+            {
+                "name" : "list_docs_reception_desk",
+                "description" : ""
+            },
+            {
+                "name" : "update_docs_reception_desk",
+                "description": "Accept or decline document from reception desk"
+            }
+        ]
     }
 ]
