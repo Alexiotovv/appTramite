@@ -4,7 +4,7 @@ namespace App\Http\Requests\Transaction;
 
 use App\Http\Requests\Template;
 use App\Rules\VerifyFormDataFiles;
-
+use Illuminate\Validation\Rule;
 /**
  * Validate data for store request desk
 */
@@ -30,7 +30,15 @@ class StoreRD extends Template
             'subject' => 'required|string|max:255',
             'type_doc_register' => 'required|in:carnet,dni,ruc',
             'number_doc_register' => 'required|string|max:255',
-            'reception_desk_code' => 'required|string|max:255',
+            'reception_desk_code' => [
+                'required',
+                'string', 
+                'max:255', 
+                Rule::exists('office', 'id')->where(function ($query) {
+                    $decodedCode = base64_decode(request()->input('reception_desk_code'));
+                    $query->where('id', $decodedCode);
+                }),
+            ],
             'doc_main' => [
                 'required',
                 'max:20480',

@@ -5,16 +5,19 @@ namespace App\Http\Controllers;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use App\Http\Requests\Transaction\StoreRD;
-use App\Models\User;
 use App\Models\TransactionReception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Concurrency;
+use App\Traits\Transaction;
 
 class TransactionController extends Controller
 {
+    use Transaction;
+
     public function storeReceptionDesk(StoreRD $request): JsonResponse
     {
         try{
+            $officeId = $request->reception_desk_code;
             [$codeUnique, $userId] = Concurrency::driver('sync')->run(
                 function (){
                     do{
@@ -23,8 +26,8 @@ class TransactionController extends Controller
                     } while($exists == true);
                     return $codeUnique;
                 },
-                function () {
-                    
+                function () use ($officeId) {
+                    return $this->selectUserRandom(lenght: 1, rol: 'reception_desk', office: $officeId);
                 }
             );
 
