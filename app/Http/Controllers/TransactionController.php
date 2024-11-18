@@ -17,20 +17,21 @@ class TransactionController extends Controller
     public function storeReceptionDesk(StoreRD $request): JsonResponse
     {
         try{
-            $officeId = $request->reception_desk_code;
-            [$codeUnique, $userId] = Concurrency::driver('sync')->run(
+            $officeId = (int) $request->reception_desk_code;
+            [$userId, $codeUnique] = Concurrency::run([
+                function () use ($officeId) {
+                    return $this->selectUserRandom(length: 1, rol: 'reception_desk', office: $officeId);
+                },
                 function (){
                     do{
                         $codeUnique = transactionCode('JYC');
                         $exists =TransactionReception::where('public_unit_code', $codeUnique)->exists();
                     } while($exists == true);
                     return $codeUnique;
-                },
-                function () use ($officeId) {
-                    return $this->selectUserRandom(lenght: 1, rol: 'reception_desk', office: $officeId);
                 }
-            );
+            ]);
 
+        
             DB::transaction(function() use ($request){
                 
             });

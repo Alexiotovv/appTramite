@@ -8,7 +8,7 @@ use Illuminate\Contracts\Validation\ValidationRule;
 
 class VerifyFormDataFiles implements ValidationRule
 {
-    public function __construct(public string $format){}
+    //public function __construct(public string $format){}
 
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
@@ -17,7 +17,7 @@ class VerifyFormDataFiles implements ValidationRule
             return;
         }
         try{
-            switch($this->format){
+            switch('receptionDesk'){
                 case 'receptionDesk':
                     $this->receptionDesk($value);
                 break;

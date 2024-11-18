@@ -10,6 +10,12 @@ use Illuminate\Validation\Rule;
 */
 class StoreRD extends Template
 {
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'reception_desk_code' => base64_decode($this->reception_desk_code)
+        ]);
+    }
     /**
      * Get the validation rules that apply to the request.
      *
@@ -34,10 +40,7 @@ class StoreRD extends Template
                 'required',
                 'string', 
                 'max:255', 
-                Rule::exists('office', 'id')->where(function ($query) {
-                    $decodedCode = base64_decode(request()->input('reception_desk_code'));
-                    $query->where('id', $decodedCode);
-                }),
+                Rule::exists('office', 'id')
             ],
             'doc_main' => [
                 'required',
@@ -54,15 +57,15 @@ class StoreRD extends Template
     public function messages(): array
     {
         return [
+            'transaction_number_doc_remitente.required' => 'Número de trámite documentario requerido',
+            'reception_desk_code.exists' => 'Tío, que estas haciendo esto no va de eso',
+            'date_doc_remitente.required' => 'Fecha de documento de trámite requerido',
+            'organic_unit_destino.required' => 'Código de unidad orgánica requerido',
+            'subject.required' => 'Asunto requerido',
+            'type_doc_register.required' => 'Tipo de documento de solicitante requerido',
+            'number_doc_register.required' => 'Número de documento de solicitante requerido',
             'doc_main.mimetypes' => 'Solo se aceptan archivos pdf en el documento principal',
             'doc_main.max' => 'El archivo no debe superar los 20MB'
         ];
-    }
-
-    protected function passedValidation(): void
-    {
-        $this->replace([
-            'reception_desk_code' => base64_decode(request()->reception_desk_code)
-        ]);
     }
 }

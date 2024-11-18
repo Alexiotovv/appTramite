@@ -6,18 +6,22 @@ use Illuminate\Support\Facades\DB;
 
 trait Transaction
 {
-    public function selectUserRandom(int $lenght = 1, string $rol, int $office)
+    public function selectUserRandom(string $rol, int $office, int $length = 1): int
     {
-        return DB::table('users AS u')
+        $query = DB::table('users AS u')
             ->join('user_office AS uo', 'u.id', '=', 'uo.user_id')
             ->join('office AS o', 'uo.office_id', '=', 'o.id')
             ->join('user_rol AS ur', 'u.id', '=', 'ur.user_id')
             ->join('rol AS r', 'ur.rol_id', '=', 'r.id')
-            ->where('u.status', 1)
-            ->where('r.name' , '=',  $rol)
-            ->where('o.id', $office)
+            ->where([
+                ['u.status', 1],
+                ['r.name', '=', $rol],
+                ['o.id', '=', $office]
+            ])
             ->inRandomOrder()
-            ->limit($lenght)
-            ->pluck('u.id');
+            ->limit($length)
+            ->pluck('u.id')
+            ->first();
+        return $query;
     }
 }
