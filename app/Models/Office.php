@@ -16,7 +16,7 @@ class Office extends Model
         'is_reception_desk'
     ];
 
-    public static function receptionDesk(): \Illuminate\Database\Eloquent\Collection
+    public static function receptionDesk(): \Illuminate\Support\Collection
     { 
         return self::join('office_token AS ot', 'ot.office_id', '=', 'office.id')
             ->select(
