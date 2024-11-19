@@ -87,4 +87,15 @@ class TransactionController extends Controller
             return $this->defaultResponse($e);
         }
     }
+
+    public function retriveReceptionDesk(): JsonResponse
+    {
+        try{
+            return response()->json([
+
+            ]);
+        }catch(Exception $e){
+            return $this->defaultResponse($e);
+        }
+    }
 }

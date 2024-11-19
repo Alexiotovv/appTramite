@@ -11,8 +11,11 @@ Route::prefix('/v1/')->group(function(){
     Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
     Route::post('refresh-token', [AuthController::class, 'refreshTokens'])->middleware('auth:sanctum', 'abilities:refresh-access-token');
 });
-
+Route::prefix('v1/transaction/')->group(function(){
+    Route::get('reception-desk', [TransactionController::class, 'retriveReceptionDesk'])->middleware('auth:sanctum');
+});
 Route::prefix('/v1/public/')->group(function(){
-    Route::get('list/reception-desk', [OfficeController::class, 'getReceptionDesk']);
+    Route::get('list/office/reception-desk', [OfficeController::class, 'getReceptionDesk']);
     Route::post('reception-desk/transaction', [TransactionController::class, 'storeReceptionDesk']);
+    Route::get(''); 
 });
