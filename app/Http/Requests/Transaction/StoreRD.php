@@ -36,6 +36,16 @@ class StoreRD extends Template
             'subject' => 'required|string|max:255',
             'type_doc_register' => 'required|in:carnet,dni,ruc',
             'number_doc_register' => 'required|string|max:255',
+            'phone' => [
+                'nullable',
+                'max:255',
+                Rule::requiredIf(is_null(request('email')))
+            ],
+            'email' => [
+                'nullable',
+                'email',
+                Rule::requiredIf(is_null(request('phone')))
+            ],
             'reception_desk_code' => [
                 'required',
                 'string', 
@@ -65,7 +75,11 @@ class StoreRD extends Template
             'type_doc_register.required' => 'Tipo de documento de solicitante requerido',
             'number_doc_register.required' => 'Número de documento de solicitante requerido',
             'doc_main.mimetypes' => 'Solo se aceptan archivos pdf en el documento principal',
-            'doc_main.max' => 'El archivo no debe superar los 20MB'
+            'doc_main.max' => 'El archivo no debe superar los 20MB',
+            'phone.required' => 'El campo teléfono es obligatorio si no se proporciona un correo electrónico.',
+            'phone.max' => 'El campo teléfono no debe exceder los 255 caracteres.',
+            'email.required' => 'El campo correo electrónico es obligatorio si no se proporciona un teléfono.',
+            'email.email' => 'El campo correo electrónico debe ser una dirección de correo válida.',
         ];
     }
 }

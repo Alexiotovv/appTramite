@@ -46,7 +46,9 @@ class TransactionController extends Controller
                     1,
                     $userId,
                     $request->reception_desk_code,
-                    $codeUnique
+                    $codeUnique,
+                    $request->phone,
+                    $request->email
                 );
 
                 $partialPath = date('Y/m/d');

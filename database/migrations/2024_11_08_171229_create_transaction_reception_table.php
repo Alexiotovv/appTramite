@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('subject', 500);
             $table->enum('type_doc_register', ['carnet', 'dni', 'ruc']);
             $table->string('number_doc_register')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
             $table->unsignedTinyInteger('status');
             $table->foreignId('user_id_assign')->constrained('users');
             $table->foreignId('office_id')->constrained('office');

@@ -24,7 +24,9 @@ class TransactionReception extends Model
         'status',
         'user_id_assign',
         'office_id',
-        'public_unit_code'
+        'public_unit_code',
+        'phone',
+        'email'
     ];
 
     public static function storeReception(
@@ -43,7 +45,9 @@ class TransactionReception extends Model
         int $status,
         int $userIdAssign,
         int $officeId,
-        string $publicUnitCode
+        string $publicUnitCode,
+        ?string $phone,
+        ?string $email
     ): int {
         $query = self::create([
             'ruc_entity_sender' => $rucEntitySender, 
@@ -61,7 +65,9 @@ class TransactionReception extends Model
             'status' => $status ,
             'user_id_assign' => $userIdAssign ,
             'office_id' => $officeId,
-            'public_unit_code' => $publicUnitCode
+            'public_unit_code' => $publicUnitCode,
+            'phone' => $phone,
+            'email' => $email
         ]); 
         return $query->id;
     }
