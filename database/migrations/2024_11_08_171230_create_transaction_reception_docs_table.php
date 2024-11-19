@@ -8,6 +8,9 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * Type file:
+     * 1: for local
+     * 2: Not local
      */
     public function up(): void
     {
