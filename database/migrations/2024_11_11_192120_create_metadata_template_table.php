@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('metadata_template', function (Blueprint $table) {
             $table->id();
+            $table->string('path_template');
             $table->string('year_name');
             $table->string('path_logo_entity');
             $table->string('path_logo_digital_government');
