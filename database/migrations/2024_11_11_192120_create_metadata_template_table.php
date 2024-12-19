@@ -14,12 +14,9 @@ return new class extends Migration
         Schema::create('metadata_template', function (Blueprint $table) {
             $table->id();
             $table->string('year_name');
-            $table->string('path_logo');
-            $table->string('address_footer');
-            $table->float('margin_top');
-            $table->float('margin_bottom');
-            $table->float('margin_right');
-            $table->float('margin_left');
+            $table->string('path_logo_entity');
+            $table->string('path_logo_digital_government');
+            $table->smallInteger('type_doc');
             $table->timestamps();
         });
     }
