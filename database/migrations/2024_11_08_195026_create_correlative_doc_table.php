@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreignId('office_id')->constrained('office');
             $table->foreignId('type_doc_id')->constrained('type_doc');
             $table->unsignedInteger('last_correlative');
-            $table->json('jumps')->nullable();
             $table->timestamps();
         });
     }

@@ -17,8 +17,7 @@ class TemplateWord
                     'year_name',
                     'path_logo_entity',
                     'path_logo_digital_government',
-                    'type_doc',
-                    'requirements'
+                    'type_doc'
                 )
                 ->first();
         });

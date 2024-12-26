@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('correlative_user', function (Blueprint $table) {
+        Schema::create('correlative_jump', function (Blueprint $table) {
             $table->id();
             $table->foreignId('office_id')->constrained('office');
+            $table->foreignId('type_doc_id')->constrained('type_doc');
             $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('type_doc')->constrained('type_doc');
-            $table->unsignedInteger('last_correlative');
+            $table->unsignedInteger('correlative');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('correlative_user');
+        Schema::dropIfExists('correlative_jump');
     }
 };
