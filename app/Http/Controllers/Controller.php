@@ -12,11 +12,11 @@ abstract class Controller
         Log::error($class . ', '.  $function . ':' . $e->getMessage());
     }
 
-    public function defaultResponse(?Exception $e): JsonResponse
+    public function defaultResponse(?Exception $e = null): JsonResponse
     {
         return response()->json([
             'message' => 'Estamos experimentando problemas temporales',
-            $e->getMessage()
+            $e->getMessage() ?? null
         ]);
     }
 }

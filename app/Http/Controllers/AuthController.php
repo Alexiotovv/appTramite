@@ -49,9 +49,7 @@ class AuthController extends Controller
             ], 200);
         }catch(Exception $e){
             $this->LogError(get_class($this), $e, __FUNCTION__);
-            return response()->json([
-                'message'=>'Estamos experimentando problemas temporales',
-            ], 500);
+            return $this->defaultResponse();
         }   
     }
 
@@ -70,9 +68,7 @@ class AuthController extends Controller
             ], 401);
         }catch(Exception $e){
             $this->LogError(get_class($this), $e, __FUNCTION__);
-            return response()->json([
-                'message' => 'Estamos experimentando problemas'
-            ], 500);
+            return $this->defaultResponse();
         }
     }
 
@@ -87,9 +83,7 @@ class AuthController extends Controller
             ], 200);
         }catch(Exception $e){
             $this->LogError(get_class($this), $e, __FUNCTION__);
-            return response()->json([
-                'message' => 'Estamos experimentando problemas temporales'
-            ], 500);
+            return $this->defaultResponse();
         }
     }
 }

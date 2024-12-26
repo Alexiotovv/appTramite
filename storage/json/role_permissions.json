@@ -22,6 +22,10 @@
             {
                 "name" : "list_office",
                 "description" : "list offices"
+            },
+            {
+                "name" : "manage_templates",
+                "description": "can manage meta data for doc templates: logos, year name, etc"
             }
         ]
     },

@@ -126,4 +126,13 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Locación fisica de la entidad que utilizará el tramite
+    |--------------------------------------------------------------------------
+    | Esta configuración es necesaria para generar los templates
+    */
+    'location' => env('APP_LOCATION', 'Iquitos'), 
+
 ];
