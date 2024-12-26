@@ -58,7 +58,9 @@ class AuthController extends Controller
         try{
             $user = $request->user();
             list($tokenOperation, $tokenUpdate) = TokenService::refreshTokens($user);
+            $metadaUser = User::retriveUserFill($user->id, false);
             return response()->json([
+                'items' => $metadaUser,
                 'tokenOperation' => $tokenOperation,
                 'tokenUpdate' => $tokenUpdate
             ], 200);
@@ -68,7 +70,7 @@ class AuthController extends Controller
             ], 401);
         }catch(Exception $e){
             $this->LogError(get_class($this), $e, __FUNCTION__);
-            return $this->defaultResponse();
+            return $this->defaultResponse($e);
         }
     }
 

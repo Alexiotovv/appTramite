@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('path_template');
             $table->string('year_name');
             $table->string('path_logo_entity');
-            $table->string('path_logo_digital_government');
+            $table->string('path_logo_digital_government')->nullable();
             $table->smallInteger('type_doc');
+            $table->boolean('is_default')->default(0);
             $table->timestamps();
         });
     }

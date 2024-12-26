@@ -7,7 +7,6 @@ use App\Exceptions\Services\Tokens;
 use App\Services\Tokens\Operation;
 use App\Services\Tokens\Update;
 
-
 class TokenService
 {    
     public static function refreshTokens(User $user): array

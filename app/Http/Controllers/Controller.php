@@ -16,7 +16,7 @@ abstract class Controller
     {
         return response()->json([
             'message' => 'Estamos experimentando problemas temporales',
-            $e->getMessage() ?? null
+            'error_message' => $e->getMessage() ?? null
         ]);
     }
 }
