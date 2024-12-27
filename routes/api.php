@@ -20,7 +20,6 @@ Route::prefix('/v1/public/')->group(function(){
     Route::post('reception-desk/transaction', [TransactionController::class, 'storeReceptionDesk']);
 });
 
-
 Route::middleware('auth:sanctum', 'abilities:operation-api-token')->group(function(){
     Route::prefix('/v1/maintenance')->group(function(){
         Route::get('/template', [TemplateController::class, 'list']);

@@ -2,11 +2,13 @@
 
 namespace App\Http\Requests\Template;
 
+use Exception;
 use App\Http\Requests\Template;
-use App\Services\CheckPermission;
 
 class Lister extends Template
 {    
+    public string $permissions = 'manage_templates';
+
     public function rules(): array
     {
         return [

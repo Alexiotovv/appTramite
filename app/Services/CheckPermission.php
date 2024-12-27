@@ -8,8 +8,9 @@ use App\Models\User;
 class CheckPermission {
     
     protected $permissions;
-    
 
+    private $ttl = 75600;
+    
     public function __construct(protected int $userId)
     {
         $this->permissions = $this->fetchPermission();
@@ -17,7 +18,7 @@ class CheckPermission {
     
     protected function fetchPermission()
     {
-        return Cache::remember($this->userId, function(){
+        return Cache::remember($this->userId, $this->ttl, function(){
             return User::retriveUserFill($this->userId, false);
         });
     }
@@ -25,7 +26,7 @@ class CheckPermission {
     /**
      * @return true if user has permissions
     */
-    public function check(array $permissions): bool
+    public function check(string $permissions): bool
     {
         if($this->verifyKeys()){
             return true;
