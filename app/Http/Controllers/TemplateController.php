@@ -14,7 +14,7 @@ class TemplateController extends Controller
         try{
 
             
-            return response()->json(['items' => , 'total_items' => ], 200);
+            return response()->json(['items' => '', 'total_items' => ''], 200);
         }catch(Exception $e){
             $this->LogError(get_class($this), $e, __FUNCTION__);
             return $this->defaultResponse($e);

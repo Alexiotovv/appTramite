@@ -57,6 +57,14 @@ return [
             'throw' => false,
         ],
 
+        'template' => [
+            'driver' => 'local',
+            'root' => storage_path('app/private/template'),
+            'url' => env('APP_URL').'/private/template',
+            'visibility' => 'private',
+            'throw' => false,
+        ]
+
     ],
 
     /*

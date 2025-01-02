@@ -5,7 +5,13 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\TemplateController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\UserController;
+
+
+Route::prefix('/v1/disk/uploads/')->group(function(){
+    Route::get('template/{path}', [FileController::class, 'templates']);
+});
 
 Route::prefix('/v1/')->group(function(){
     Route::post('login', [AuthController::class, 'login'])->middleware('throttle:login');
