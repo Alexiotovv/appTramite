@@ -9,8 +9,8 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\UserController;
 
 
-Route::prefix('/v1/disk/uploads/')->group(function(){
-    Route::get('template/{path}', [FileController::class, 'templates']);
+Route::prefix('/disk/uploads/')->group(function(){
+    Route::get('template/{path}', [FileController::class, 'templates'])->middleware('auth:sanctum', 'abilities:operation-api-token');
 });
 
 Route::prefix('/v1/')->group(function(){
@@ -18,7 +18,7 @@ Route::prefix('/v1/')->group(function(){
     Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
     Route::post('refresh-token', [AuthController::class, 'refreshTokens'])->middleware('auth:sanctum', 'abilities:refresh-access-token');
 });
-Route::prefix('v1/transaction/')->group(function(){
+Route::prefix('/v1/transaction/')->group(function(){
     Route::get('reception-desk', [TransactionController::class, 'retriveReceptionDesk'])->middleware('auth:sanctum');
 });
 Route::prefix('/v1/public/')->group(function(){

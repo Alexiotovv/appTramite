@@ -14,11 +14,11 @@ class FileController extends Controller
             if(!Storage::disk('template')->exists($path)){
                 return response()->json(['message' => 'Archivo no encontrado'], 404);
             }
-            $disk =  Storage::disk('template');
-            $fileContent = $disk->get($path);
-            $mimeType = Storage::disk('template')->mimeType($path);
-            return response($fileContent, 200)
-            ->header('Content-Type', $mimeType);
+            $relativePath = $path;
+            $absolutePath = Storage::disk('template')->path($relativePath);
+            $fileContent = Storage::disk('template')->get($relativePath);
+            $mimeType = Storage::mimeType($absolutePath);
+            return response($fileContent, 200)->header('Content-Type', $mimeType);            
         }catch(Exception){
             return $this->defaultResponse();
         }
